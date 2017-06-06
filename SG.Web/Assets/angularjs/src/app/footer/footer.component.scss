@@ -1,0 +1,27 @@
+.footer {
+    margin-bottom: 12px;
+    .container {
+    	//width: 1152px;
+    }
+    .footerStripe {
+    	width: 1120px;
+		padding: 0px;
+	    height: 40px;
+	    color: white;
+	    background: rgb(143,199,103);
+	    background: -moz-linear-gradient(left, rgba(143,199,103,1) 0%, rgba(38,114,106,1) 44%);
+	    background: -webkit-linear-gradient(left, rgba(143,199,103,1) 0%,rgba(38,114,106,1) 44%);
+	    background: linear-gradient(to right, rgba(143,199,103,1) 0%,rgba(38,114,106,1) 44%);
+	   	strong{
+			font-size: 12px;
+		}
+		.fa{
+			font-size: 20px;
+			vertical-align: middle;
+    		margin-top: 9px;
+		}
+		span{
+			padding: 10px;
+		}
+	}
+}

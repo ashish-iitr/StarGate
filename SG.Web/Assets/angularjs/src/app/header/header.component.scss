@@ -1,0 +1,66 @@
+.navbar {
+	min-height: 108px;
+	box-shadow: none;
+    border: none;
+    background: none;
+    padding: 3px 100px;
+    text-align: right;
+    .navbar-form {
+    	//margin: 10px 45px;
+    	input {
+    		background: #f8fafa;
+    	}
+    }
+    /* enable absolute positioning */
+	.inner-addon {
+	  	position: relative;
+	  	.form-control {
+	  		display: inline;
+	  	}
+	}
+
+	/* style glyph */
+	.inner-addon .glyphicon {
+	  	position: absolute;
+	  	padding: 10px;
+	  	pointer-events: none;
+	  	color: #d8d8d8;
+	}
+	.left-addon input  { 
+		padding-left:  30px; 
+	}
+	#navbar {
+		margin-top: 38px;
+	}
+	ul li a{
+		color: #005951;
+	}
+	.login-dp{
+	    min-width: 250px;
+	    padding: 14px 14px 0;
+	    overflow:hidden;
+	    background-color:rgba(255,255,255,.8);
+	    padding: 10px;
+    	line-height: 3;
+	}
+	.navbar-right {
+		margin:0;
+		a{
+			text-decoration: none;
+		}
+	}
+
+	.dropdown {
+		.dropdown-menu {
+			border-top: 3px solid #18ba60;
+			li :hover{
+				//background: #005951;
+				//color: #fff
+			}
+		}
+	}
+	.dropdown:hover .dropdown-menu {
+	    display: block;
+	    margin-top: 0; // remove the gap so it doesn't close
+	}
+}

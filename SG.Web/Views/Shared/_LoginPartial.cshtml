@@ -1,0 +1,37 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div>
+        <ul class="nav navbar-nav navbar-right">
+            @if (string.IsNullOrEmpty(User.Identity.Name) ||  User.Identity.Name == "unknown")
+            {
+                <li>
+                    @Html.ActionLink("Sign out", "SignOut", "Account")
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a id="profile-link">@User.Identity.Name</a>
+                    <div id="profile-options" class="nav navbar-nav navbar-right">
+                        <ul class="profile-links">
+                            <li>
+                                @Html.ActionLink("Sign out", "SignOut", "Account")
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Sign up/Sign in", "SignUpSignIn", "Account", routeValues: null, htmlAttributes: new { id = "signUpSignInLink" })
+        </li>
+        @*<li>
+            @Html.ActionLink("Sign up/Sign in using O365", "SignUpSignInO365", "Account", routeValues: null, htmlAttributes: new { id = "signUpSignInO365Link" })
+        </li>*@
+    </ul>
+}
