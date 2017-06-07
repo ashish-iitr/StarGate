@@ -20,10 +20,10 @@ using SG.Web.Utils;
 namespace SG.Web
 {
     public partial class Startup
-	{
-        //public static string clientId = ConfigurationManager.AppSettings["idao:ClientId"];
-        //private static string appKey = ConfigurationManager.AppSettings["idao:ClientSecret"];
-        //public static string aadInstance = ConfigurationManager.AppSettings["idao:AADInstance"];
+    {
+        public static string clientId = ConfigurationManager.AppSettings["idao:ClientId"];
+        private static string appKey = ConfigurationManager.AppSettings["idao:ClientSecret"];
+        public static string aadInstance = ConfigurationManager.AppSettings["idao:AADInstance"];
 
         // App config settings
         public static string ClientId = ConfigurationManager.AppSettings["ida:ClientId"];
@@ -44,7 +44,7 @@ namespace SG.Web
         public static string ApiIdentifier = ConfigurationManager.AppSettings["api:ApiIdentifier"];
         public static string ReadTasksScope = ApiIdentifier + ConfigurationManager.AppSettings["api:ReadScope"];
         public static string WriteTasksScope = ApiIdentifier + ConfigurationManager.AppSettings["api:WriteScope"];
-        public static string[] Scopes = new string[]{ ReadTasksScope, WriteTasksScope };
+        public static string[] Scopes = new string[] { ReadTasksScope, WriteTasksScope };
 
         // OWIN auth middleware constants
         public const string ObjectIdElement = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier";
@@ -61,36 +61,74 @@ namespace SG.Web
 
             app.UseCookieAuthentication(new CookieAuthenticationOptions());
 
-            app.UseOpenIdConnectAuthentication(
-                new OpenIdConnectAuthenticationOptions
+            var socialAuthenticationOptions = new OpenIdConnectAuthenticationOptions
+            {
+                // Generate the metadata address using the tenant and policy information
+                MetadataAddress = String.Format(AadInstance, Tenant, DefaultPolicy),
+
+                // These are standard OpenID Connect parameters, with values pulled from web.config
+                ClientId = ClientId,
+                RedirectUri = RedirectUri,
+                PostLogoutRedirectUri = RedirectUri,
+
+                // Specify the callbacks for each type of notifications
+                Notifications = new OpenIdConnectAuthenticationNotifications
                 {
-                    // Generate the metadata address using the tenant and policy information
-                    MetadataAddress = String.Format(AadInstance, Tenant, DefaultPolicy),
+                    RedirectToIdentityProvider = OnRedirectToIdentityProvider,
+                    AuthorizationCodeReceived = OnAuthorizationCodeReceived,
+                    AuthenticationFailed = OnAuthenticationFailed,
+                },
 
-                    // These are standard OpenID Connect parameters, with values pulled from web.config
-                    ClientId = ClientId,
-                    RedirectUri = RedirectUri,
-                    PostLogoutRedirectUri = RedirectUri,
+                // Specify the claims to validate
+                TokenValidationParameters = new TokenValidationParameters
+                {
+                    NameClaimType = "name"
+                },
 
-                    // Specify the callbacks for each type of notifications
-                    Notifications = new OpenIdConnectAuthenticationNotifications
-                    {
-                        RedirectToIdentityProvider = OnRedirectToIdentityProvider,
-                        AuthorizationCodeReceived = OnAuthorizationCodeReceived,
-                        AuthenticationFailed = OnAuthenticationFailed,
-                    },
+                // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
+                Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
+            };
 
-                    // Specify the claims to validate
-                    TokenValidationParameters = new TokenValidationParameters
-                    {
-                        NameClaimType = "name"
-                    },
+            app.Map("/SignUpSignInSocial", configuration =>
+            {
+                configuration.UseOpenIdConnectAuthentication(socialAuthenticationOptions);
+            });
 
-                    // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
-                    Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
+            var o365Authentication = new OpenIdConnectAuthenticationOptions
+            {
+                // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+                // The `Scope` describes the initial permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/                    
+                ClientId = clientId,
+                Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
+                RedirectUri = RedirectUri,
+                Scope = "openid email profile offline_access Mail.Read",
+                PostLogoutRedirectUri = RedirectUri,
+
+                // Specify the claims to validate
+                TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = false,
+                    NameClaimType = "name"
+                },
+
+                Notifications = new OpenIdConnectAuthenticationNotifications
+                {
+                    // If there is a code in the OpenID Connect response, redeem it for an access token and refresh token, and store those away.
+                    AuthorizationCodeReceived = OnAuthorizationCodeReceived,
+                    AuthenticationFailed = OnAuthenticationFailed
                 }
-            );
+            };
 
+            app.Map("/Account/SignUpSignInO365", configuration =>
+            {
+                configuration.UseOAuth2CodeRedeemer(new OAuth2CodeRedeemerOptions
+                {
+                    ClientId = clientId,
+                    ClientSecret = appKey,
+                    RedirectUri = RedirectUri
+                });
+                configuration.UseOpenIdConnectAuthentication(o365Authentication);
+            });
         }
 
         /*
@@ -159,75 +197,6 @@ namespace SG.Web
                 throw;
             }
         }
-
-        //public void ConfigureAuthO365(IAppBuilder app)
-        //{
-        //    app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
-
-        //    app.UseCookieAuthentication(new CookieAuthenticationOptions());
-
-
-        //    app.UseOAuth2CodeRedeemer(
-        //       new OAuth2CodeRedeemerOptions
-        //       {
-        //           ClientId = clientId,
-        //           ClientSecret = appKey,
-        //           RedirectUri = RedirectUri
-        //       }
-        //       );
-
-        //    app.UseOpenIdConnectAuthentication(
-        //        new OpenIdConnectAuthenticationOptions
-        //        {
-        //            // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
-        //            // The `Scope` describes the initial permissions that your app will need.  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/                    
-        //            ClientId = clientId,
-        //            Authority = String.Format(CultureInfo.InvariantCulture, aadInstance, "common", "/v2.0"),
-        //            RedirectUri = RedirectUri,
-        //            Scope = "openid email profile offline_access Mail.Read",
-        //            PostLogoutRedirectUri = RedirectUri,
-        //            TokenValidationParameters = new TokenValidationParameters
-        //            {
-        //                ValidateIssuer = false,
-        //                // In a real application you would use IssuerValidator for additional checks, like making sure the user's organization has signed up for your app.
-        //                //     IssuerValidator = (issuer, token, tvp) =>
-        //                //     {
-        //                //        //if(MyCustomTenantValidation(issuer)) 
-        //                //        return issuer;
-        //                //        //else
-        //                //        //    throw new SecurityTokenInvalidIssuerException("Invalid issuer");
-        //                //    },
-        //            },
-        //            Notifications = new OpenIdConnectAuthenticationNotifications
-        //            {
-        //                // If there is a code in the OpenID Connect response, redeem it for an access token and refresh token, and store those away.
-        //                AuthorizationCodeReceived = async (context) =>
-        //                {
-        //                    var code = context.Code;
-        //                    string signedInUserID = context.AuthenticationTicket.Identity.FindFirst(ClaimTypes.NameIdentifier).Value;
-        //                    TokenCache userTokenCache = new MSALSessionCache(signedInUserID,
-        //                        context.OwinContext.Environment["System.Web.HttpContextBase"] as HttpContextBase).GetMsalCacheInstance();
-        //                    ConfidentialClientApplication cca =
-        //                        new ConfidentialClientApplication(clientId, RedirectUri, new ClientCredential(appKey), userTokenCache, null);
-        //                    string[] scopes = { "Mail.Read" };
-        //                    try
-        //                    {
-        //                        AuthenticationResult result = await cca.AcquireTokenByAuthorizationCodeAsync(code, scopes);
-        //                    }
-        //                    catch (Exception ex)
-        //                    {
-
-        //                    }
-        //                },
-        //                AuthenticationFailed = (notification) =>
-        //                {
-        //                    notification.HandleResponse();
-        //                    notification.Response.Redirect("/Error?message=" + notification.Exception.Message);
-        //                    return Task.FromResult(0);
-        //                }
-        //            }
-        //        });
-        //}
 
     }
 }

@@ -1,6 +1,21 @@
-webpackJsonp([2,4],{
+webpackJsonp([2],{
 
-/***/ 13:
+/***/ "./node_modules/css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!./node_modules/postcss-loader/index.js?{\"ident\":\"postcss\"}!./node_modules/sass-loader/lib/loader.js?{\"sourceMap\":false,\"precision\":8,\"includePaths\":[]}!./src/styles.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/css-base.js":
 /***/ (function(module, exports) {
 
 /*
@@ -83,22 +98,7 @@ function toComment(sourceMap) {
 
 /***/ }),
 
-/***/ 135:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(13)(false);
-// imports
-
-
-// module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 166:
+/***/ "./node_modules/style-loader/addStyles.js":
 /***/ (function(module, exports) {
 
 /*
@@ -351,24 +351,16 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 170:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(72);
-
-
-/***/ }),
-
-/***/ 72:
+/***/ "./src/styles.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(135);
+var content = __webpack_require__("./node_modules/css-loader/index.js?{\"sourceMap\":false,\"importLoaders\":1}!./node_modules/postcss-loader/index.js?{\"ident\":\"postcss\"}!./node_modules/sass-loader/lib/loader.js?{\"sourceMap\":false,\"precision\":8,\"includePaths\":[]}!./src/styles.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(166)(content, {});
+var update = __webpack_require__("./node_modules/style-loader/addStyles.js")(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -384,7 +376,15 @@ if(false) {
 	module.hot.dispose(function() { update(); });
 }
 
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__("./src/styles.scss");
+
+
 /***/ })
 
-},[170]);
+},[2]);
 //# sourceMappingURL=styles.bundle.js.map

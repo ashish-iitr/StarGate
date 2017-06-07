@@ -80,15 +80,15 @@ namespace SG.Web.Controllers
         /*
          *  Called when requesting to sign out
          */
-        //public void SignOut()
-        //{
-        //    // To sign out the user, you should issue an OpenIDConnect sign out request.
-        //    if (Request.IsAuthenticated)
-        //    {
-        //        IEnumerable<AuthenticationDescription> authTypes = HttpContext.GetOwinContext().Authentication.GetAuthenticationTypes();
-        //        HttpContext.GetOwinContext().Authentication.SignOut(authTypes.Select(t => t.AuthenticationType).ToArray());
-        //        Request.GetOwinContext().Authentication.GetAuthenticationTypes();
-        //    }
-        //}
-	}
+        public void SignOut()
+        {
+            // To sign out the user, you should issue an OpenIDConnect sign out request.
+            if (Request.IsAuthenticated)
+            {
+                IEnumerable<AuthenticationDescription> authTypes = HttpContext.GetOwinContext().Authentication.GetAuthenticationTypes();
+                HttpContext.GetOwinContext().Authentication.SignOut(authTypes.Select(t => t.AuthenticationType).ToArray());
+                Request.GetOwinContext().Authentication.GetAuthenticationTypes();
+            }
+        }
+    }
 }
