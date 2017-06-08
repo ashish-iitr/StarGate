@@ -119,7 +119,7 @@ namespace SG.Web
                 }
             };
 
-            app.Map("/Account/SignUpSignInO365", configuration =>
+            app.Map("/SignUpSignInO365", configuration =>
             {
                 configuration.UseOAuth2CodeRedeemer(new OAuth2CodeRedeemerOptions
                 {

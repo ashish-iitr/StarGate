@@ -194,7 +194,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Models\MSALSessionCache.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
@@ -209,47 +208,71 @@
     <Compile Include="Utils\OAuth2CodeRedeemerMiddleware.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\angularjs\.gitignore" />
-    <Content Include="Assets\angularjs\karma.conf.js" />
-    <Content Include="Assets\angularjs\protractor.conf.js" />
-    <Content Include="Assets\angularjs\src\app\app.component.html" />
-    <Content Include="Assets\angularjs\src\app\dashboard\dashboard.component.html" />
-    <Content Include="Assets\angularjs\src\app\footer\footer.component.html" />
-    <Content Include="Assets\angularjs\src\app\header\header.component.html" />
-    <Content Include="Assets\angularjs\src\index.html" />
+    <Content Include="images\DoorstepBlockNew.png" />
+    <Content Include="images\favicon.png" />
+    <Content Include="images\HomepagePhoto-Rev3.jpg" />
+    <Content Include="images\MaintenanceBlockNew.png" />
+    <Content Include="images\PetBlockNew.png" />
+    <Content Include="images\TurnsBlockNew.png" />
+    <Content Include="images\VLLogoFINAL.png" />
+    <Content Include="NgApp\.gitignore" />
+    <Content Include="NgApp\karma.conf.js" />
+    <Content Include="NgApp\NgAppCompiled\index.html" />
+    <Content Include="NgApp\NgAppCompiled\inline.bundle.js" />
+    <Content Include="NgApp\NgAppCompiled\main.bundle.js" />
+    <Content Include="NgApp\NgAppCompiled\polyfills.bundle.js" />
+    <Content Include="NgApp\NgAppCompiled\styles.bundle.js" />
+    <Content Include="NgApp\NgAppCompiled\vendor.bundle.js" />
+    <Content Include="NgApp\protractor.conf.js" />
+    <Content Include="NgApp\src\app\app.component.html" />
+    <Content Include="NgApp\src\app\dashboard\dashboard.component.html" />
+    <Content Include="NgApp\src\app\footer\footer.component.html" />
+    <Content Include="NgApp\src\app\header\header.component.html" />
+    <Content Include="NgApp\src\images\DoorstepBlockNew.png" />
+    <Content Include="NgApp\src\images\favicon.png" />
+    <Content Include="NgApp\src\images\HomepagePhoto-Rev3.jpg" />
+    <Content Include="NgApp\src\images\MaintenanceBlockNew.png" />
+    <Content Include="NgApp\src\images\PetBlockNew.png" />
+    <Content Include="NgApp\src\images\TurnsBlockNew.png" />
+    <Content Include="NgApp\src\images\VLLogoFINAL.png" />
+    <Content Include="NgApp\src\index.html" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Assets\angularjs\.angular-cli.json" />
-    <Content Include="Assets\angularjs\.editorconfig" />
-    <Content Include="Assets\angularjs\e2e\tsconfig.e2e.json" />
-    <Content Include="Assets\angularjs\package.json" />
-    <Content Include="Assets\angularjs\README.md" />
-    <Content Include="Assets\angularjs\src\app\app.component.scss" />
-    <Content Include="Assets\angularjs\src\app\dashboard\dashboard.component.scss" />
-    <Content Include="Assets\angularjs\src\app\footer\footer.component.scss" />
-    <Content Include="Assets\angularjs\src\app\header\header.component.scss" />
-    <Content Include="Assets\angularjs\src\assets\.gitkeep" />
-    <Content Include="Assets\angularjs\src\styles.scss" />
-    <Content Include="Assets\angularjs\src\tsconfig.app.json" />
-    <Content Include="Assets\angularjs\src\tsconfig.spec.json" />
-    <Content Include="Assets\angularjs\tsconfig.json" />
-    <Content Include="Assets\angularjs\tslint.json" />
+    <Content Include="NgApp\.angular-cli.json" />
+    <Content Include="NgApp\.editorconfig" />
+    <Content Include="NgApp\e2e\tsconfig.e2e.json" />
+    <Content Include="NgApp\package.json" />
+    <Content Include="NgApp\README.md" />
+    <Content Include="NgApp\src\app\app.component.scss" />
+    <Content Include="NgApp\src\app\dashboard\dashboard.component.scss" />
+    <Content Include="NgApp\src\app\footer\footer.component.scss" />
+    <Content Include="NgApp\src\app\header\header.component.scss" />
+    <Content Include="NgApp\src\assets\.gitkeep" />
+    <Content Include="NgApp\src\styles.scss" />
+    <Content Include="NgApp\src\tsconfig.app.json" />
+    <Content Include="NgApp\src\tsconfig.spec.json" />
+    <Content Include="NgApp\tsconfig.json" />
+    <Content Include="NgApp\tslint.json" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-reboot.min.css.map" />
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="NgApp\NgAppCompiled\inline.bundle.js.map" />
+    <Content Include="NgApp\NgAppCompiled\main.bundle.js.map" />
+    <Content Include="NgApp\NgAppCompiled\polyfills.bundle.js.map" />
+    <Content Include="NgApp\NgAppCompiled\styles.bundle.js.map" />
+    <Content Include="NgApp\NgAppCompiled\vendor.bundle.js.map" />
     <None Include="Properties\PublishProfiles\StarGate - Web Deploy.pubxml" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -271,18 +294,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Scripts\NgApp\index.html" />
-    <Content Include="Scripts\NgApp\inline.bundle.js" />
-    <Content Include="Scripts\NgApp\main.bundle.js" />
-    <Content Include="Scripts\NgApp\polyfills.bundle.js" />
-    <Content Include="Scripts\NgApp\styles.bundle.js" />
-    <Content Include="Scripts\NgApp\vendor.bundle.js" />
     <Content Include="Scripts\profile-dropdown.js" />
-    <Content Include="Scripts\NgApp\inline.bundle.js.map" />
-    <Content Include="Scripts\NgApp\main.bundle.js.map" />
-    <Content Include="Scripts\NgApp\polyfills.bundle.js.map" />
-    <Content Include="Scripts\NgApp\styles.bundle.js.map" />
-    <Content Include="Scripts\NgApp\vendor.bundle.js.map" />
     <None Include="Scripts\_references.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
@@ -299,19 +311,10 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\NgApp.cshtml" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Account\SignOutCallback.cshtml" />
-    <Content Include="Views\Home\Claims.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Assets\css\" />
-    <Folder Include="Assets\js\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -320,23 +323,23 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <TypeScriptCompile Include="Assets\angularjs\e2e\app.e2e-spec.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\e2e\app.po.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\app.component.spec.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\app.component.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\app.module.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\dashboard\dashboard.component.spec.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\dashboard\dashboard.component.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\footer\footer.component.spec.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\footer\footer.component.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\header\header.component.spec.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\app\header\header.component.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\environments\environment.prod.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\environments\environment.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\main.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\polyfills.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\test.ts" />
-    <TypeScriptCompile Include="Assets\angularjs\src\typings.d.ts" />
+    <TypeScriptCompile Include="NgApp\e2e\app.e2e-spec.ts" />
+    <TypeScriptCompile Include="NgApp\e2e\app.po.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\app.component.spec.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\app.component.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\app.module.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\dashboard\dashboard.component.spec.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\dashboard\dashboard.component.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\footer\footer.component.spec.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\footer\footer.component.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\header\header.component.spec.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\header\header.component.ts" />
+    <TypeScriptCompile Include="NgApp\src\environments\environment.prod.ts" />
+    <TypeScriptCompile Include="NgApp\src\environments\environment.ts" />
+    <TypeScriptCompile Include="NgApp\src\main.ts" />
+    <TypeScriptCompile Include="NgApp\src\polyfills.ts" />
+    <TypeScriptCompile Include="NgApp\src\test.ts" />
+    <TypeScriptCompile Include="NgApp\src\typings.d.ts" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
@@ -378,12 +381,14 @@
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.3\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>echo "cd $(ProjectDir)Assets\angularjs" &amp;&amp;^
-cd "$(ProjectDir)Assets\angularjs" &amp;&amp;^
-echo "building Angular App at Assets\angularjs" &amp;&amp;^
+    <PreBuildEvent>echo "cd $(ProjectDir)NgApp" &amp;&amp;^
+cd "$(ProjectDir)NgApp" &amp;&amp;^
+echo "building Angular App at NgApp" &amp;&amp;^
 ng build &amp;&amp;^
-echo 'copying files to Scripts/NgApp' &amp;&amp;^
-xcopy /I /E /Y "$(ProjectDir)Assets\angularjs\dist" "$(ProjectDir)Scripts\NgApp"</PreBuildEvent>
+echo 'copying files to NgApp\NgAppCompiled' &amp;&amp;^
+xcopy /I /E /Y "$(ProjectDir)NgApp\dist" "$(ProjectDir)NgApp\NgAppCompiled" &amp;&amp;^
+echo 'copying images to $(ProjectDir)images' &amp;&amp;^
+xcopy /I /E /Y "$(ProjectDir)NgApp\src\images" "$(ProjectDir)images"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
