@@ -1,6 +1,4 @@
 ﻿using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.OpenIdConnect;
-using Owin;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,42 +6,44 @@ using System.Web.Mvc;
 
 namespace SG.Web.Controllers
 {
+    [RoutePrefix("Account")]
     public class AccountController : Controller
     {
 
         /*
          *  Called when requesting to sign up or sign in
          */
-        public void SignUpSignInSocial()
+        [Route("SignUpSignInSocial")]
+        public JsonResult SignUpSignInSocial()
         {
             // Use the default policy to process the sign up / sign in flow
             if (!Request.IsAuthenticated)
             {
                 HttpContext.GetOwinContext().Authentication.Challenge();
-                return;
             }
 
-            Response.Redirect("/");
+            return Json(User, JsonRequestBehavior.AllowGet);
         }
 
         /*
          *  Called when requesting to sign up or sign in
          */
-        public void SignUpSignInO365()
+        [Route("SignUpSignInO365")]
+        public JsonResult SignUpSignInO365()
         {
             // Send an OpenID Connect sign-in request.
             if (!Request.IsAuthenticated)
             {
                 HttpContext.GetOwinContext().Authentication.Challenge();
-                return;
             }
 
-            Response.Redirect("/");
-        }        
+            return Json(User, JsonRequestBehavior.AllowGet);
+        }
 
         /*
          *  Called when requesting to sign out
          */
+        [Route("SignOut")]
         public void SignOut()
         {
             // To sign out the user, you should issue an OpenIDConnect sign out request.

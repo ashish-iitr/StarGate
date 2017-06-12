@@ -81,6 +81,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__header_header_component__ = __webpack_require__("./src/app/header/header.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__footer_footer_component__ = __webpack_require__("./src/app/footer/footer.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__dashboard_dashboard_component__ = __webpack_require__("./src/app/dashboard/dashboard.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -88,6 +89,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -114,7 +116,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_3__angular_http__["a" /* HttpModule */]
         ],
-        providers: [],
+        providers: [__WEBPACK_IMPORTED_MODULE_8__app_services_auth_service__["a" /* AuthService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_4__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -248,7 +250,7 @@ FooterComponent = __decorate([
 /***/ "./src/app/header/header.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<nav class=\"navbar navbar-default\">\r\n  <div class=\"container\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n      </button>\r\n      <a class=\"navbar-brand\" href=\"#\">\r\n        <img alt=\"Brand\" src=\"images/VLLogoFINAL.png\" />\r\n      </a>\r\n    </div>\r\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\r\n      <ul class=\"nav navbar-nav\">\r\n        <li class=\"dropdown\">\r\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">About<span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu\">\r\n            <li><a href=\"#\">Client Testimonials</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Leadership</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Partner</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Valet Giving</a></li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"dropdown\">\r\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Product & Services<span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu\">\r\n            <li><a href=\"#\">Doorstep</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Turns</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Maintenance</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Pet Waste Stations</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Recycling</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Campus</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Bags</a></li>\r\n          </ul>\r\n        </li>\r\n        <li><a href=\"#about\">News</a></li>\r\n        <li><a href=\"#about\">Careers</a></li>\r\n        <li class=\"dropdown\">\r\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Contact <span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu\">\r\n            <li><a href=\"#\">Join Our Mailing List</a></li>\r\n          </ul>\r\n        </li>\r\n        <li>\r\n          <form class=\"navbar-form\" role=\"search\">\r\n            <div class=\"inner-addon left-addon\">\r\n              <i class=\"glyphicon glyphicon-search\"></i>\r\n              <input type=\"text\" class=\"form-control\" placeholder=\"Search..\" name=\"srch-term\" [(ngModel)]=\"srchterm\" (keyup.enter)=\"searchText()\" />\r\n            </div>\r\n          </form>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li class=\"dropdown\">\r\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Login <span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu login-dp\">\r\n            <li>\r\n              <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                  <a type=\"button\" href=\"/Account/SignUpSignInO365\" class=\"btn btn-primary btn-block\">Login with Office 365</a>\r\n                </div>\r\n                <br />\r\n                <div class=\"col-md-12\">\r\n                  <a type=\"button\" href=\"/Account/SignUpSignInSocial\" class=\"btn btn-success btn-block\">Login with Social Accounts</a>\r\n                </div>\r\n              </div>\r\n            </li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>"
+module.exports = "<nav class=\"navbar navbar-default\">\r\n  <div class=\"container\">\r\n    <div class=\"navbar-header\">\r\n      <button type=\"button\" class=\"navbar-toggle collapsed\" data-toggle=\"collapse\" data-target=\"#navbar\" aria-expanded=\"false\" aria-controls=\"navbar\">\r\n        <span class=\"sr-only\">Toggle navigation</span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n        <span class=\"icon-bar\"></span>\r\n      </button>\r\n      <a class=\"navbar-brand\" href=\"#\">\r\n        <img alt=\"Brand\" src=\"images/VLLogoFINAL.png\" />\r\n      </a>\r\n    </div>\r\n    <div id=\"navbar\" class=\"collapse navbar-collapse\">\r\n      <ul class=\"nav navbar-nav\">\r\n        <li class=\"dropdown\">\r\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">About<span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu\">\r\n            <li><a href=\"#\">Client Testimonials</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Leadership</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Partner</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Valet Giving</a></li>\r\n          </ul>\r\n        </li>\r\n        <li class=\"dropdown\">\r\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Product & Services<span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu\">\r\n            <li><a href=\"#\">Doorstep</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Turns</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Maintenance</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Pet Waste Stations</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Recycling</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Campus</a></li>\r\n            <li role=\"separator\" class=\"divider\"></li>\r\n            <li><a href=\"#\">Bags</a></li>\r\n          </ul>\r\n        </li>\r\n        <li><a href=\"#about\">News</a></li>\r\n        <li><a href=\"#about\">Careers</a></li>\r\n        <li class=\"dropdown\">\r\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\" role=\"button\" aria-haspopup=\"true\" aria-expanded=\"false\">Contact <span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu\">\r\n            <li><a href=\"#\">Join Our Mailing List</a></li>\r\n          </ul>\r\n        </li>\r\n        <li>\r\n          <form class=\"navbar-form\" role=\"search\">\r\n            <div class=\"inner-addon left-addon\">\r\n              <i class=\"glyphicon glyphicon-search\"></i>\r\n              <input type=\"text\" class=\"form-control\" placeholder=\"Search..\" name=\"srch-term\" [(ngModel)]=\"srchterm\" (keyup.enter)=\"searchText()\" />\r\n            </div>\r\n          </form>\r\n        </li>\r\n      </ul>\r\n      <ul class=\"nav navbar-nav navbar-right\">\r\n        <li class=\"dropdown\">\r\n          <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">Login<span class=\"caret\"></span></a>\r\n          <ul class=\"dropdown-menu login-dp\">\r\n            <li>\r\n              <div class=\"row\">\r\n                <div class=\"col-md-12\">\r\n                  <button (click)=\"SignUpSignInO365()\" class=\"btn btn-primary btn-block\">Login with Office 365</button>\r\n                </div>\r\n                <br />\r\n                <div class=\"col-md-12\">\r\n                  <a type=\"button\" href=\"/Account/SignUpSignInSocial\" class=\"btn btn-success btn-block\">Login with Social Accounts</a>\r\n                  <!--<button (click)=\"SignUpSignInSocial()\" class=\"btn btn-success btn-block\">Login with Social Accounts</button>-->\r\n                </div>\r\n              </div>\r\n            </li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n    </div>\r\n  </div>\r\n</nav>"
 
 /***/ }),
 
@@ -275,6 +277,7 @@ module.exports = module.exports.toString();
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_auth_service__ = __webpack_require__("./src/app/services/auth.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HeaderComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -286,10 +289,18 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var HeaderComponent = (function () {
-    function HeaderComponent() {
+    function HeaderComponent(_authService) {
+        this._authService = _authService;
     }
     HeaderComponent.prototype.ngOnInit = function () {
+    };
+    HeaderComponent.prototype.SignUpSignInSocial = function () {
+        this._authService.socialLogin();
+    };
+    HeaderComponent.prototype.SignUpSignInO365 = function () {
+        this._authService.internalLogin();
     };
     return HeaderComponent;
 }());
@@ -297,12 +308,86 @@ HeaderComponent = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_4" /* Component */])({
         selector: 'app-header',
         template: __webpack_require__("./src/app/header/header.component.html"),
-        styles: [__webpack_require__("./src/app/header/header.component.scss")]
+        styles: [__webpack_require__("./src/app/header/header.component.scss")],
+        providers: [__WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_auth_service__["a" /* AuthService */]) === "function" && _a || Object])
 ], HeaderComponent);
 
+var _a;
 //# sourceMappingURL=header.component.js.map
+
+/***/ }),
+
+/***/ "./src/app/services/auth.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__ = __webpack_require__("./node_modules/rxjs/Observable.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/add/operator/map.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__ = __webpack_require__("./node_modules/rxjs/add/operator/catch.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_catch__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__("./node_modules/@angular/http/@angular/http.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var AuthService = (function () {
+    function AuthService(http) {
+        this.http = http;
+    }
+    AuthService.prototype.internalLogin = function () {
+        return this.http.get('/Account/SignUpSignInO365')
+            .map(function (response) {
+            //login successfull 
+            var user = response.json();
+            console.log(user);
+        })
+            .catch(this.handleError);
+    };
+    AuthService.prototype.socialLogin = function () {
+        return this.http.get('/Account/SignUpSignInO365')
+            .map(function (response) {
+            //login successfull 
+            var user = response.json();
+            console.log(user);
+        })
+            .catch(this.handleError);
+    };
+    AuthService.prototype.signOut = function () {
+        return this.http.get('/Account/SignOut')
+            .map(function (response) {
+            //logout successfull 
+        })
+            .catch(this.handleError);
+    };
+    AuthService.prototype.handleError = function (error) {
+        console.error(error);
+        return __WEBPACK_IMPORTED_MODULE_1_rxjs_Observable__["Observable"].throw(error.json().error || 'Server error');
+    };
+    return AuthService;
+}());
+AuthService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _a || Object])
+], AuthService);
+
+var _a;
+//# sourceMappingURL=auth.service.js.map
 
 /***/ }),
 

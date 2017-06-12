@@ -310,7 +310,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\NgApp.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -334,6 +333,7 @@
     <TypeScriptCompile Include="NgApp\src\app\footer\footer.component.ts" />
     <TypeScriptCompile Include="NgApp\src\app\header\header.component.spec.ts" />
     <TypeScriptCompile Include="NgApp\src\app\header\header.component.ts" />
+    <TypeScriptCompile Include="NgApp\src\app\services\auth.service.ts" />
     <TypeScriptCompile Include="NgApp\src\environments\environment.prod.ts" />
     <TypeScriptCompile Include="NgApp\src\environments\environment.ts" />
     <TypeScriptCompile Include="NgApp\src\main.ts" />

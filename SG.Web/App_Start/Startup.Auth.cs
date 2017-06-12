@@ -89,7 +89,7 @@ namespace SG.Web
                 Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             };
 
-            app.Map("/SignUpSignInSocial", configuration =>
+            app.Map("/Account/SignUpSignInSocial", configuration =>
             {
                 configuration.UseOpenIdConnectAuthentication(socialAuthenticationOptions);
             });
@@ -119,7 +119,7 @@ namespace SG.Web
                 }
             };
 
-            app.Map("/SignUpSignInO365", configuration =>
+            app.Map("/Account/SignUpSignInO365", configuration =>
             {
                 configuration.UseOAuth2CodeRedeemer(new OAuth2CodeRedeemerOptions
                 {
