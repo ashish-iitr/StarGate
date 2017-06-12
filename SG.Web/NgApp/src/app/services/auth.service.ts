@@ -21,7 +21,7 @@ export class AuthService {
     }
 
     socialLogin() {
-        return this.http.get('/Account/SignUpSignInO365')
+        return this.http.get('/Account/SignUpSignInSocial')
             .map((response: Response) => {
                 //login successfull 
                 let user = response.json();
